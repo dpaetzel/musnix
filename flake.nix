@@ -21,6 +21,7 @@
           default = import ./tests/default.nix checkArgs;
         }
       );
+      overlays = { musnix = import ./overlay.nix; };
       packages = forAllSystems (platform: {
         rtcqs = nixpkgs.legacyPackages.${platform}.callPackage ./pkgs/rtcqs.nix { };
       });
